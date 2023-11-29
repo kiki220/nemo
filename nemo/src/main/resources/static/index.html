@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>메모장</title>
+    <style>
+		#reg_btn{
+			border-radius: 5px 5px 5px 5px; 
+			border: 1.5px solid skyblue;
+			background-color:rgba(0,0,0,0); 
+			color:skyblue; 
+			padding:3px;
+			font-weight:bold;
+		}
+		#reg_btn:hover{
+			color:white;
+			background-color:skyblue;
+		}
+	</style>
+</head>
+<body>
+
+<div style="text-align: center;">
+    <div><br></div>
+    <span id="whologin"></span>
+		
+    <button onclick="javascript:logout()">야매로그아웃</button>
+
+    <div>
+        <input id="new_text" style="border: skyblue 2px solid; border-radius: 10px 10px 10px 10px;" />
+        <button id="reg_btn" onclick="javascript:ins();">등록</button>
+    </div>
+
+    <div><br></div>
+
+    <div id="todolist" style="border: skyblue 1px solid; height: 600px; width: 500px; margin:0 auto">
+    </div>
+    <input type="hidden" id="titleno">
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ysl.nemo.memo.dao.MemoDao" >
+
+    <select id="selectAll" resultType="org.ysl.nemo.memo.domain.TodoVo" parameterType="org.ysl.nemo.memo.domain.LoginVo">
+        SELECT title,titleno FROM YSL.MEMO
+         WHERE delyn = 'N'
+           and userid = #{userid}
+         order by titleno 
+    </select>
+    
+    <delete id="delete" parameterType="org.ysl.nemo.memo.domain.DelVo">
+        UPDATE YSL.MEMO
+           SET delyn = 'Y'
+		 where titleno = #{titleno}
+		   and userid = #{userid}
+    </delete>
+	
+	<insert id="insert" parameterType="org.ysl.nemo.memo.domain.NewVo">
+        insert into ysl.memo
+        select NVL(max(titleno),0)+1
+        	 , 'N'
+        	 , #{newText}
+        	 , #{userid}
+       	  from ysl.memo
+    </insert>
+    
+    <select id="login" parameterType="org.ysl.nemo.memo.domain.LoginVo">
+        select 'Y' from ysl.userinfo
+	     where userid = #{userid}
+	       and password = #{password}
+	       and delyn = 'N'
+    </select>
+    
+    <select id="selectDetail" resultType="org.ysl.nemo.memo.domain.DetailVo" parameterType="org.ysl.nemo.memo.domain.DetailVo">
+        SELECT titleno,textno,text,userid FROM YSL.DTMEMO
+         WHERE delyn = 'N'
+           and userid = #{userid}
+           and titleno = #{titleno}
+         order by textno 
+    </select>
+    
+    <delete id="deletedetail" parameterType="org.ysl.nemo.memo.domain.DelVo">
+        UPDATE YSL.DTMEMO
+           SET delyn = 'Y'
+		 where titleno = #{titleno}
+		   and userid = #{userid}
+		   and textno = #{textno}
+    </delete>
+    
+    <insert id="insertdetail" parameterType="org.ysl.nemo.memo.domain.NewVo">
+        insert into ysl.dtmemo
+        select #{titleno}
+        	 , NVL(max(textno),0)+1
+        	 , #{newText}
+        	 , 'N'
+        	 , #{userid}
+       	  from ysl.dtmemo
+    </insert>
+</mapper>
