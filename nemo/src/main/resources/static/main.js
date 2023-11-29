@@ -2,6 +2,12 @@
 refresh();
 
 function refresh() {
+	fetch("/chkloginid")
+    .then(response => response.text())
+    .then(data =>{
+		$("#loginid_span").text(data+"님");
+	});
+	
     fetch("/list")
     .then(response => response.json())
     .then(data =>{

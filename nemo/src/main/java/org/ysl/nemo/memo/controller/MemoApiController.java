@@ -98,4 +98,8 @@ public class MemoApiController {
         }else {return;}
     }
     
+    @GetMapping("/chkloginid")
+    public String chkloginid(HttpSession session) {
+        return (String)session.getAttribute("userID");
+    }
 }

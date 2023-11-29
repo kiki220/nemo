@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <style>
+		#login_btn{
+			border-radius: 5px 5px 5px 5px; 
+			border: 1.5px solid #FFAD5B;
+			background-color:rgba(0,0,0,0); 
+			color:#FFAD5B; 
+			padding:3px;
+			font-weight:bold;
+		}
+		#login_btn:hover{
+			color:white;
+			background-color:#FFAD5B;
+		}
+	</style>
 </head>
 <body>
 
 <div style="text-align: center;">
     <div><br></div>
 	<p><span style="border-radius: 15px 15px 15px 0; border: 3px solid #FFAD5B; padding: 0.5em 0.6em; color: #FF8000;">LOGIN</span></p>
+    
     <div>
-        ID: <input id="userid" />
+        ID: <input id="userid" onkeyup="if(window.event.keyCode==13){login();}"/>
         <div></div>
-        PW: <input id ="password" />
+        PW: <input id ="password" onkeyup="if(window.event.keyCode==13){login();}"/>
         <div><br></div>
         <button id="login_btn" onclick="javascript:login();">로그인</button>
     </div>
-
+    
     <div><br></div>
 
     </div>

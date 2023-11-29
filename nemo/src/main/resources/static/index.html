@@ -16,6 +16,18 @@
 			color:white;
 			background-color:skyblue;
 		}
+		#logout_btn{
+			border-radius: 5px 5px 5px 5px; 
+			border: 1.5px solid skyblue;
+			background-color:rgba(0,0,0,0); 
+			color:skyblue; 
+			padding:3px;
+			font-weight:bold;
+		}
+		#logout_btn:hover{
+			color:white;
+			background-color:skyblue;
+		}
 	</style>
 </head>
 <body>
@@ -23,9 +35,14 @@
 <div style="text-align: center;">
     <div><br></div>
     <span id="whologin"></span>
-		
-    <button onclick="javascript:logout()">야매로그아웃</button>
+    
+    <div style="float:right;">
+		<span id="loginid_span"></span>	
+	    <button id="logout_btn" onclick="javascript:logout()">로그아웃</button>
+	</div>
 
+	<div><br></div>
+	<div><br></div>
     <div>
         <input id="new_text" style="border: skyblue 2px solid; border-radius: 10px 10px 10px 10px;" />
         <button id="reg_btn" onclick="javascript:ins();">등록</button>
