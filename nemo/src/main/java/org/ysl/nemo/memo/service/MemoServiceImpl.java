@@ -33,30 +33,6 @@ public class MemoServiceImpl implements MemoService {
     public int ins(NewVo newVo) {
         return memoDao.insert(newVo);
     }
-
-    @Override
-    public String login(LoginVo loginVo, HttpSession session) {
-        String loginyn = memoDao.login(loginVo);
-        if("Y".equals(loginyn)) {
-            session.setAttribute("userID",loginVo.getUserid());
-            
-        }
-        
-        /*
-         * if(loginyn == 'Y'){ var link = 'http://localhost:8090/';
-         * location.replace(link); } else{ alert("로그인정보가 존재하지 않습니다."); return; }
-         */
-        
-        return loginyn;
-    }
-
-    @Override
-    public boolean loginchk(HttpSession session) {
-        if(session.getAttribute("userID") != null) {
-            return true;
-        }else {return false;}
-        
-    }
     
     @Override
     public List<DetailVo> detaillist(DetailVo detailVo) {

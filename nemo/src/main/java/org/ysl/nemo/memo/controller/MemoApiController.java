@@ -20,12 +20,7 @@ import org.ysl.nemo.memo.service.MemoService;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@Slf4j
 public class MemoApiController {
-    /*
-     * 2. 상식선에서 이해가 가능하도록 꾸미기 (화면이든 기능이든)
-     * 3. 면접 공부랑 이 프로젝트 뜯어보기가 좀 중요할듯 (기본기)
-     * */
 
     @Autowired
     private MemoService memoService;
@@ -56,21 +51,6 @@ public class MemoApiController {
         }else {return;}
     }
     
-    @PostMapping("/login")
-    public String login(@RequestBody LoginVo loginVo, HttpSession session) {
-        return memoService.login(loginVo, session);
-    }
-    
-    public boolean loginchk(HttpSession session) {
-        return memoService.loginchk(session);
-    }
-    
-    @GetMapping("/logout")
-    public void logout(HttpSession session) {
-        log.info((String)session.getAttribute("userID"));
-        session.invalidate();
-    }
-    
     @GetMapping("/detail")
     public List<DetailVo> detaillist(@RequestParam int titleno,HttpSession session) {
         if(loginchk(session)) {
@@ -98,8 +78,9 @@ public class MemoApiController {
         }else {return;}
     }
     
-    @GetMapping("/chkloginid")
-    public String chkloginid(HttpSession session) {
-        return (String)session.getAttribute("userID");
+    private boolean loginchk(HttpSession session) {
+        if(session.getAttribute("userID") != null) {
+            return true;
+        }else {return false;}
     }
 }

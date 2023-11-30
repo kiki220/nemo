@@ -17,10 +17,6 @@ public interface MemoService {
     
     int ins(NewVo newVo);
     
-    String login(LoginVo loginVo, HttpSession session);
-
-    boolean loginchk(HttpSession session);
-    
     List<DetailVo> detaillist(DetailVo detailVo);
     
     int deldetail(DelVo delVo);

@@ -19,6 +19,7 @@ function login() {
 		}
 		else{
 			alert("로그인정보가 존재하지 않습니다.");
+			$("#password").val('');
 			return;
 		}
 	});
