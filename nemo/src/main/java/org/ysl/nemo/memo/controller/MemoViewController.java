@@ -11,14 +11,8 @@ public class MemoViewController {
     @GetMapping("/")
     public String view(HttpSession session) {
         if(session.getAttribute("userID") != null) {
-            return "index.html";
+            return "memo/html/index.html";
         }
-        //return "login.html";
         return "redirect:/login";
-    }
-    
-    @GetMapping("/login")
-    public String loginview() {
-        return "login.html";
     }
 }

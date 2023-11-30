@@ -17,8 +17,6 @@ public interface MemoDao {
     
     int insert(NewVo newVo);
     
-    String login(LoginVo loginVo);
-    
     List<DetailVo> selectDetail(DetailVo detailVo);
     
     int deletedetail(DelVo delVo);

@@ -25,13 +25,6 @@
        	  from ysl.memo
     </insert>
     
-    <select id="login" parameterType="org.ysl.nemo.memo.domain.LoginVo">
-        select 'Y' from ysl.userinfo
-	     where userid = #{userid}
-	       and password = #{password}
-	       and delyn = 'N'
-    </select>
-    
     <select id="selectDetail" resultType="org.ysl.nemo.memo.domain.DetailVo" parameterType="org.ysl.nemo.memo.domain.DetailVo">
         SELECT titleno,textno,text,userid FROM YSL.DTMEMO
          WHERE delyn = 'N'
