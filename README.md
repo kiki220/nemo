@@ -9,4 +9,4 @@
 	  html + css + javascript 기술을 활용하여 직접 구현해본다. 
 	- 유지보수 용이성을 위해 반복되는 코드를 줄일 수 있는 방법들을 적용한다.
 
-![메모 프로젝트 매뉴얼](https://github.com/kiki220/nemo/assets/141392585/a38c47d2-d7ee-488b-8808-a70c238412a7)
+[메모 프로젝트 매뉴얼](https://github.com/kiki220/nemo/assets/141392585/a38c47d2-d7ee-488b-8808-a70c238412a7)
